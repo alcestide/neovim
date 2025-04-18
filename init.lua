@@ -1,5 +1,3 @@
-
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -22,7 +20,6 @@ require 'configs.lsp'
 require 'configs.nvterm'
 require 'configs.luasnip'
 require 'configs.oil'
-require 'configs.dap'
 vim.cmd 'colorscheme catppuccin-mocha'
 
 require("dap").adapters.lldb = {
@@ -51,3 +48,4 @@ local lldb = {
 require('dap').configurations.rust = {
 	lldb -- different debuggers or more configurations can be used here
 }
+

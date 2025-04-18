@@ -1,23 +1,30 @@
 return {
 
-{
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  },
-  keys = {
-    {
-      "<leader>?",
-      function()
-        require("which-key").show({ global = false })
-      end,
-      desc = "Buffer Local Keymaps (which-key)",
+    ------------------------------------
+    --------------- Mini ---------------
+  {
+    "echasnovski/mini.icons",
+    opts = {},
+    lazy = true,
+    specs = {
+      { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
     },
+    init = function()
+      package.preload["nvim-web-devicons"] = function()
+        require("mini.icons").mock_nvim_web_devicons()
+        return package.loaded["nvim-web-devicons"]
+      end
+    end,
   },
-},
+  {
+    "echasnovski/mini.starter",
+        version = '*',
+        lazy = true,
+        init = function()
+        require("mini.starter").setup()
+    end,
+  },
+    ------------------------------------
 
 {
     "vhyrro/luarocks.nvim",
@@ -30,10 +37,7 @@ return {
     event = "InsertEnter",
     config = true
 },
-{
-  "karb94/neoscroll.nvim",
-  opts = {},
-},
+
 {'nvim-pack/nvim-spectre'},
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -49,21 +53,20 @@ return {
   -- Optional dependencies
   dependencies = { "nvim-tree/nvim-web-devicons" },
 },
-  {"MunifTanjim/nui.nvim",},
-  {
+
+{
     'rcarriga/nvim-notify',
+    lazy = false,
     config = function ()
       require("notify").setup {
-        background_colour="#000000",
         stages = "fade_in_slide_out",
         timeout = 3000,
         fps = 144,
       }
-
       vim.notify = require('notify')
     end
   },
-
+  {"MunifTanjim/nui.nvim",},
 {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -75,24 +78,14 @@ return {
     }
   },
 
+--[[
 {
-    'goolord/alpha-nvim',
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
-    end
-},
-{
-  "NeogitOrg/neogit",
-  dependencies = {
-    "nvim-lua/plenary.nvim",         -- required
-    "sindrets/diffview.nvim",        -- optional - Diff integration
-
-    -- Only one of these is needed.
-    "nvim-telescope/telescope.nvim", -- optional
+  "ahmedkhalf/project.nvim",
+  config = function()
+    require("project_nvim").setup {
+      -- your configuration comes here
   },
-  config = true
-},
---)
+--]]
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate"
@@ -132,18 +125,22 @@ return {
         },
 
       {'williamboman/mason-lspconfig.nvim'},
-
+{
+  "karb94/neoscroll.nvim",
+  opts = {
+  },
+},
 { "catppuccin/nvim",
 lazy = true,
 name = "catppuccin",
 priority = 1,
 opts = {
     color_overrides = {
-		mocha = {
---			    base = "#000000",
---				mantle = "#000000",
---				crust = "#000000",
-                },
+		--mocha = {
+			    --base = "#000000",
+				--mantle = "#000000",
+				--crust = "#000000",
+                --},
 			},
         style = "catppuccin-mocha",
         },},

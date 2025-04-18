@@ -3,7 +3,7 @@
 -- https://www.youtube.com/watch?v=LaS32vctfOY
 
 -- Reserve a space in the gutter
-vim.opt.signcolumn = 'yes'
+--vim.opt.signcolumn = 'yes'
 
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
@@ -34,11 +34,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+
 -- You'll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- These are example language servers. 
 require('lspconfig').gleam.setup({})
 require('lspconfig').ocamllsp.setup({})
+require('lspconfig').lua_ls.setup({})
+require('lspconfig').clangd.setup({})
+require('lspconfig').csharp_ls.setup({})
+require('lspconfig').pyright.setup({})
 
 local cmp = require('cmp')
 

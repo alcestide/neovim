@@ -6,8 +6,8 @@ vim.keymap.set('n', '<leader>fb', ':Telescope buffers <CR>', {})
 vim.keymap.set('n', '<leader>fh', ':Telescope help_tags <CR>', {})
 vim.keymap.set('n', '<leader>]', ':bn<CR>', {})
 vim.keymap.set('n', '<leader>[', ':bp<CR>', {})
-vim.keymap.set('n', '<leader>x', ':BufferClose<CR>', {})
-vim.keymap.set('n', '<leader><F5>', ':UndotreeToggle<CR>', {})
+vim.keymap.set('n', '<leader>x', ':bd<CR>', {})
+vim.keymap.set('n', '<F5>', ':UndotreeToggle<CR>', {})
 vim.keymap.set('n', '<leader>tt', ':colorscheme catppuccin-mocha<CR>', {})
 vim.keymap.set('n', '<C-Left>', '<C-w><Left>', {noremap = true, silent = true })
 vim.keymap.set('n', '<C-Right>', '<C-w><Right>', {noremap = true, silent = true })
@@ -33,4 +33,4 @@ vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual(
 vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
     desc = "Search on current file"
 })
-
+vim.keymap.set('n', '<C-a>', function () require('neoscroll').scroll(-vim.wo.scroll, {move_cursor=true, duration=300}) end)
