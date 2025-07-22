@@ -60,7 +60,7 @@ return {
     config = function ()
       require("notify").setup {
         stages = "fade_in_slide_out",
-        timeout = 3000,
+        timeout = 1000,
         fps = 144,
       }
       vim.notify = require('notify')
@@ -78,14 +78,6 @@ return {
     }
   },
 
---[[
-{
-  "ahmedkhalf/project.nvim",
-  config = function()
-    require("project_nvim").setup {
-      -- your configuration comes here
-  },
---]]
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate"
@@ -194,6 +186,29 @@ end,
         require('lualine').setup()
     end,
     dependencies = { 'nvim-tree/nvim-web-devicons' }
+},
+
+{'ThePrimeagen/harpoon',
+    dependencies={'nvim-lua/plenary.nvim'}
+},
+
+{
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  },
+  keys = {
+    {
+      "<leader>?",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      desc = "Buffer Local Keymaps (which-key)",
+    },
+  },
 },
 
        }

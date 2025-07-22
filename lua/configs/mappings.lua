@@ -13,10 +13,6 @@ vim.keymap.set('n', '<C-Left>', '<C-w><Left>', {noremap = true, silent = true })
 vim.keymap.set('n', '<C-Right>', '<C-w><Right>', {noremap = true, silent = true })
 vim.keymap.set('n', '<C-h>', '<C-w><Left>', {noremap = true, silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w><Right>', {noremap = true, silent = true })
-vim.keymap.set('n', '<A-v>', function () require("nvterm.terminal").toggle('vertical') end)
-vim.keymap.set('t', '<A-v>', function () require("nvterm.terminal").toggle('vertical') end)
-vim.keymap.set('n', '<A-h>', function () require("nvterm.terminal").toggle('horizontal') end)
-vim.keymap.set('t', '<A-h>', function () require("nvterm.terminal").toggle('horizontal') end)
 vim.keymap.set('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>', {})
 vim.keymap.set('n', '<leader>dr', ':lua require"dap".continue()<CR>', {})
 vim.keymap.set('n', '<leader>dt', ':lua require"dap".terminate()<CR>', {})
@@ -34,3 +30,6 @@ vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search(
     desc = "Search on current file"
 })
 vim.keymap.set('n', '<C-a>', function () require('neoscroll').scroll(-vim.wo.scroll, {move_cursor=true, duration=300}) end)
+
+vim.keymap.set('n', '<leader>ha', '<esc><cmd>lua require("harpoon.mark").add_file()<CR>', {})
+vim.keymap.set('n', '<leader>hh', '<esc><cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', {})

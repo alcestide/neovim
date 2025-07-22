@@ -17,10 +17,10 @@ require('lazy').setup("plugins")
 require 'configs.nvimtree'
 require 'configs.treesitter'
 require 'configs.lsp'
-require 'configs.nvterm'
 require 'configs.luasnip'
 require 'configs.oil'
 vim.cmd 'colorscheme catppuccin-mocha'
+
 
 require("dap").adapters.lldb = {
 	type = "executable",
