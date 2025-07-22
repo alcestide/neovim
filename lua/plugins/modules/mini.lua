@@ -1,5 +1,6 @@
   return
   {
+  {
     "echasnovski/mini.icons",
     opts = {},
     lazy = true,
@@ -20,4 +21,5 @@
         init = function()
         require("mini.starter").setup()
     end,
+  },
   }

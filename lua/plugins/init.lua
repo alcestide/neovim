@@ -1,30 +1,6 @@
 return {
-
-    ------------------------------------
-    --------------- Mini ---------------
-  {
-    "echasnovski/mini.icons",
-    opts = {},
-    lazy = true,
-    specs = {
-      { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
-    },
-    init = function()
-      package.preload["nvim-web-devicons"] = function()
-        require("mini.icons").mock_nvim_web_devicons()
-        return package.loaded["nvim-web-devicons"]
-      end
-    end,
-  },
-  {
-    "echasnovski/mini.starter",
-        version = '*',
-        lazy = true,
-        init = function()
-        require("mini.starter").setup()
-    end,
-  },
-    ------------------------------------
+  -- You can include other plugin specs directly here.
+  { import = "plugins.modules" },
 
 {
     "vhyrro/luarocks.nvim",
@@ -38,7 +14,8 @@ return {
     config = true
 },
 
-{'nvim-pack/nvim-spectre'},
+{
+    'nvim-pack/nvim-spectre',
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
@@ -46,7 +23,7 @@ return {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    },
+    },},
 {
   'stevearc/oil.nvim',
   opts = {},
@@ -82,17 +59,6 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate"
 	},
-    {"jay-babu/mason-nvim-dap.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "williamboman/mason.nvim",
-            "mfussenegger/nvim-dap",},
-        opts = {handlers = {}}},
-    { "mfussenegger/nvim-dap",
-        dependencies = {
-            { "nvim-neotest/nvim-nio" },
-        }
-    },
 
     {
     	'nvim-telescope/telescope.nvim',
@@ -104,82 +70,11 @@ return {
     {   "mbbill/undotree"   },
 
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        dependencies = {
-        {'neovim/nvim-lspconfig'},
-        {
-        'williamboman/mason.nvim',
-        build = function()
-          pcall(vim.cmd, 'MasonUpdate')
-        end,
-        opts = { ensure_installed = {"g++", "clangd", "codelldb"} },
-        },
-
-      {'williamboman/mason-lspconfig.nvim'},
-{
   "karb94/neoscroll.nvim",
   opts = {
   },
 },
-{ "catppuccin/nvim",
-lazy = true,
-name = "catppuccin",
-priority = 1,
-opts = {
-    color_overrides = {
-		--mocha = {
-			    --base = "#000000",
-				--mantle = "#000000",
-				--crust = "#000000",
-                --},
-			},
-        style = "catppuccin-mocha",
-        },},
-
-    {"rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
-    dependencies = "mfussenegger/nvim-dap",
-config = function()
-    local dap = require("dap")
-    local dapui = require("dapui")
-    dapui.setup()
-    dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-    end
-    dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-    end
-    dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-    end
-end,
-},
-
-
-      {'hrsh7th/nvim-cmp',
-  },
-      {'hrsh7th/cmp-nvim-lsp'},
-
-{
-	"L3MON4D3/LuaSnip",
-	-- follow latest release.
-	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- install jsregexp (optional!).
-	build = "make install_jsregexp"
-},
-
-  },
-  },
-
-  {'akinsho/toggleterm.nvim'},
-
-  {
-  "NvChad/nvterm",
-  config = function ()
-    require("nvterm").setup()
-  end,
-    },
+  
 {
     'nvim-lualine/lualine.nvim',
     config = function()
@@ -192,38 +87,6 @@ end,
     dependencies={'nvim-lua/plenary.nvim'}
 },
 
-{
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  },
-  keys = {
-    {
-      "<leader>?",
-      function()
-        require("which-key").show({ global = false })
-      end,
-      desc = "Buffer Local Keymaps (which-key)",
-    },
-  },
-},
-
-{
-  "sphamba/smear-cursor.nvim",
-      opts = {                                -- Default  Range
-    stiffness = 0.8,                      -- 0.6      [0, 1]
-    trailing_stiffness = 0.5,             -- 0.4      [0, 1]
-    stiffness_insert_mode = 0.7,          -- 0.5      [0, 1]
-    trailing_stiffness_insert_mode = 0.7, -- 0.5      [0, 1]
-    damping = 0.8,                        -- 0.65     [0, 1]
-    damping_insert_mode = 0.8,            -- 0.7      [0, 1]
-    distance_stop_animating = 0.5,        -- 0.1      > 0
-  }, 
-
- },
 
 {
   "declancm/cinnamon.nvim",
@@ -232,6 +95,7 @@ end,
     -- change default options here
   },
 },
+
 
 
 }
