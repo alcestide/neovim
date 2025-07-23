@@ -2,6 +2,7 @@ return {
   -- You can include other plugin specs directly here.
   { import = "plugins.modules" },
 
+
 {
     "vhyrro/luarocks.nvim",
     priority = 1000,
