@@ -29,7 +29,40 @@ vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual(
 vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
     desc = "Search on current file"
 })
-vim.keymap.set('n', '<C-a>', function () require('neoscroll').scroll(-vim.wo.scroll, {move_cursor=true, duration=300}) end)
 
-vim.keymap.set('n', '<leader>ha', '<esc><cmd>lua require("harpoon.mark").add_file()<CR>', {})
-vim.keymap.set('n', '<leader>hh', '<esc><cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', {})
+
+vim.keymap.set('n', '<leader>k', function () require('neoscroll').scroll(-vim.wo.scroll, {move_cursor=true, duration=300}) end)
+vim.keymap.set('n', '<leader>j', function () require('neoscroll').scroll(vim.wo.scroll, {move_cursor=true, duration=300}) end)
+
+vim.keymap.set('n', '<leader>w', '<Cmd>write<CR>')
+vim.keymap.set('n', '<leader>Q', '<Cmd>:wqa<CR>')
+vim.keymap.set('n', '<C-f>', '<Cmd>Open .<CR>')
+
+-- quickly switch files with alternate / switch it
+vim.keymap.set('n', '<leader>s', '<Cmd>e #<CR>')
+vim.keymap.set('n', '<leader>S', '<Cmd>bot sf #<CR>')
+vim.keymap.set({ 'n', 'v', 'x' }, '<leader>m', ':move ')
+
+-- system clipboard
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
+vim.keymap.set({ 'n', 'v' }, '<leader>d', '"+d')
+vim.keymap.set({ 'n', 'v' }, '<leader>c', ':')
+
+-- soft reload config file
+vim.keymap.set({ 'n', 'v' }, '<leader>o', ':update<CR> :source<CR>')
+
+vim.keymap.set('t', '', "")
+vim.keymap.set('t', '', "")
+
+vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
+vim.keymap.set("i", "<C-e>", function() ls.expand_or_jump(1) end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-J>", function() ls.jump(1) end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-K>", function() ls.jump(-1) end, { silent = true })
+vim.keymap.set('n', '<leader>e', "<Cmd>Oil<CR>")
+vim.keymap.set('i', '<c-e>', function() vim.lsp.completion.get() end)
+
+vim.keymap.set("n", "<M-n>", "<cmd>resize +2<CR>")          -- Increase height
+vim.keymap.set("n", "<M-e>", "<cmd>resize -2<CR>")          -- Decrease height
+vim.keymap.set("n", "<M-i>", "<cmd>vertical resize +5<CR>") -- Increase width
+vim.keymap.set("n", "<M-m>", "<cmd>vertical resize -5<CR>") -- Decrease width
+vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u")

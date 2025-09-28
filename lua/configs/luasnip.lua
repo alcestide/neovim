@@ -31,5 +31,3 @@ vim.keymap.set({"i", "s"}, "<C-E>", function()
 end, {silent = true})
 
 
-
-

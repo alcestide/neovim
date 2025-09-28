@@ -32,29 +32,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
 },
 
-{
-    'rcarriga/nvim-notify',
-    lazy = false,
-    config = function ()
-      require("notify").setup {
-        stages = "fade_in_slide_out",
-        timeout = 1000,
-        fps = 144,
-      }
-      vim.notify = require('notify')
-    end
-  },
   {"MunifTanjim/nui.nvim",},
-{
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    requires = { 
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    }
-  },
 
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -63,7 +41,6 @@ return {
 
     {
     	'nvim-telescope/telescope.nvim',
-    	tag = '0.1.2',
       	dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
@@ -75,7 +52,7 @@ return {
   opts = {
   },
 },
-  
+
 {
     'nvim-lualine/lualine.nvim',
     config = function()
