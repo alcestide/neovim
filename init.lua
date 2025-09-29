@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require 'configs.options'
 require 'configs.mappings'
 require('lazy').setup("plugins")
-require 'configs.nvimtree'
 require 'configs.treesitter'
 require 'configs.oil'
 

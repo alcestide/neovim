@@ -2,6 +2,32 @@ return {
   -- You can include other plugin specs directly here.
   { import = "plugins.modules" },
 
+{
+  "NeogitOrg/neogit",
+  dependencies = {
+    "nvim-lua/plenary.nvim",         -- required
+    "sindrets/diffview.nvim",        -- optional - Diff integration
+
+    -- Only one of these is needed.
+    "nvim-telescope/telescope.nvim", -- optional
+   -- "ibhagwan/fzf-lua",              -- optional
+   -- "echasnovski/mini.pick",         -- optional
+   -- "folke/snacks.nvim",             -- optional
+ },
+},
+
+{
+  "vague2k/vague.nvim",
+  lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  priority = 1000, -- make sure to load this before all the other plugins
+  config = function()
+    -- NOTE: you do not need to call setup if you don't want to.
+    require("vague").setup({
+      -- optional configuration here
+    })
+    --vim.cmd("colorscheme vague")
+  end
+},
 
 {
     "vhyrro/luarocks.nvim",
@@ -17,7 +43,7 @@ return {
 
 {
     'nvim-pack/nvim-spectre',
-    "nvim-neo-tree/neo-tree.nvim",
+    --"nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
