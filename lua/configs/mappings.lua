@@ -39,7 +39,6 @@ vim.keymap.set('n', '<leader>w', '<Cmd>write<CR>')
 vim.keymap.set('n', '<leader>Q', '<Cmd>:wqa<CR>')
 vim.keymap.set('n', '<C-f>', '<Cmd>Open .<CR>')
 
-
 -- system clipboard
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
 vim.keymap.set({ 'n', 'v' }, '<leader>d', '"+d')
@@ -57,10 +56,10 @@ vim.keymap.set({ "i", "s" }, "<C-J>", function() ls.jump(1) end, { silent = true
 vim.keymap.set({ "i", "s" }, "<C-K>", function() ls.jump(-1) end, { silent = true })
 vim.keymap.set('i', '<c-e>', function() vim.lsp.completion.get() end)
 
-vim.keymap.set("n", "<M-n>", "<cmd>resize +2<CR>")          -- Increase height
-vim.keymap.set("n", "<M-e>", "<cmd>resize -2<CR>")          -- Decrease height
-vim.keymap.set("n", "<M-i>", "<cmd>vertical resize +5<CR>") -- Increase width
-vim.keymap.set("n", "<M-m>", "<cmd>vertical resize -5<CR>") -- Decrease width
+vim.keymap.set("n", "<M-down>", "<cmd>resize +2<CR>")          -- Increase height
+vim.keymap.set("n", "<M-up>", "<cmd>resize -2<CR>")          -- Decrease height
+vim.keymap.set("n", "<M-right>", "<cmd>vertical resize +5<CR>") -- Increase width
+vim.keymap.set("n", "<M-left>", "<cmd>vertical resize -5<CR>") -- Decrease width
 vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 
 vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv")
@@ -69,4 +68,4 @@ vim.keymap.set("n", "j", "(v:count ? 'j' : 'gj')", {expr = true})
 vim.keymap.set("n", "k", "(v:count ? 'k' : 'gk')", {expr = true})
 
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>m', ':move ')
-
+vim.keymap.set("n", "<M-?>", ":WhichKey<CR>")
