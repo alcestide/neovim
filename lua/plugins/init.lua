@@ -1,7 +1,14 @@
 return {
   -- You can include other plugin specs directly here.
   { import = "plugins.modules" },
-
+{
+  "ibhagwan/fzf-lua",
+  -- optional for icon support
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- or if using mini.icons/mini.nvim
+  -- dependencies = { "nvim-mini/mini.icons" },
+  opts = {}
+},
 {
   "NeogitOrg/neogit",
   dependencies = {
