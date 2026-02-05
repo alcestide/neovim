@@ -1,12 +1,27 @@
 return {
-  -- You can include other plugin specs directly here.
   { import = "plugins.modules" },
+
+{
+  "L3MON4D3/LuaSnip",
+  event = "InsertEnter",
+  config = function()
+    local ls = require("luasnip")
+
+    require("luasnip.loaders.from_lua").lazy_load({
+      paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
+    })
+
+    ls.config.set_config({
+      history = true,
+      updateevents = "TextChanged,TextChangedI",
+    })
+  end,
+},
+
+
 {
   "ibhagwan/fzf-lua",
-  -- optional for icon support
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  -- or if using mini.icons/mini.nvim
-  -- dependencies = { "nvim-mini/mini.icons" },
   opts = {}
 },
 {

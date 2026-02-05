@@ -51,9 +51,6 @@ vim.keymap.set('t', '', "")
 vim.keymap.set('t', '', "")
 
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
-vim.keymap.set("i", "<C-e>", function() ls.expand_or_jump(1) end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-J>", function() ls.jump(1) end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-K>", function() ls.jump(-1) end, { silent = true })
 vim.keymap.set('i', '<c-e>', function() vim.lsp.completion.get() end)
 vim.keymap.set('n', '<leader>le', vim.diagnostic.open_float, { desc = 'Show errors.' })
 
