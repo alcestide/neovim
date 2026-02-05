@@ -55,6 +55,7 @@ vim.keymap.set("i", "<C-e>", function() ls.expand_or_jump(1) end, { silent = tru
 vim.keymap.set({ "i", "s" }, "<C-J>", function() ls.jump(1) end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<C-K>", function() ls.jump(-1) end, { silent = true })
 vim.keymap.set('i', '<c-e>', function() vim.lsp.completion.get() end)
+vim.keymap.set('n', '<leader>le', vim.diagnostic.open_float, { desc = 'Show errors.' })
 
 vim.keymap.set("n", "<M-down>", "<cmd>resize +2<CR>")          -- Increase height
 vim.keymap.set("n", "<M-up>", "<cmd>resize -2<CR>")          -- Decrease height
