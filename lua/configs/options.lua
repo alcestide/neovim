@@ -24,7 +24,7 @@ vim.o.smartcase = true
 vim.o.smarttab = true
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.statuscolumn = "%s%=%{printf('%' .. len(v:relnum) .. 'd', v:lnum)}%=%{printf('%' .. len(v:lnum) .. 'd', v:relnum)} "
+vim.o.statuscolumn = "%s%=%{printf('%' .. len(v:lnum) .. 'd', v:relnum)}%=%{printf('%' .. len(v:relnum) .. 'd', v:lnum)} "
 
 --[[
 vim.o.number = true
