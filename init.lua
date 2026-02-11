@@ -17,7 +17,7 @@ require('lazy').setup("plugins")
 require 'configs.treesitter'
 require 'configs.oil'
 
-local ok, _ = pcall(vim.cmd, 'colorscheme oxocarbon')
+local ok, _ = pcall(vim.cmd, 'colorscheme rose-pine-main')
 if not ok then
   vim.cmd 'colorscheme default'
 end
