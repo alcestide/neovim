@@ -1,10 +1,12 @@
-return{{
+return{
+    {
     "rose-pine/neovim",
 	name = "rose-pine",
 	config = function()
-		vim.cmd("colorscheme rose-pine")
+		--vim.cmd("colorscheme rose-pine")
 	end
 },
+
 
 {
   "nyoom-engineering/oxocarbon.nvim"
@@ -14,17 +16,24 @@ return{{
   --   end,
 },
 
+{
+  "thesimonho/kanagawa-paper.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
+},
+
 { "catppuccin/nvim",
 --lazy = true,
 name = "catppuccin",
 priority = 1,
 opts = {
     color_overrides = {
-		--mocha = {
-			    --base = "#000000",
-				--mantle = "#000000",
-				--crust = "#000000",
-                --},
+		mocha = {
+			    base = "#0a0910",
+                mantle = "#0a0910",
+                crust = "#0a0910",
+                },
 			},
         style = "catppuccin-mocha",
         },

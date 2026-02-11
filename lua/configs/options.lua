@@ -1,5 +1,4 @@
 vim.cmd 'filetype plugin on'
-vim.cmd ':hi Normal guibg=NONE ctermbg=NONE'
 vim.g.mapleader = " "
 vim.o.conceallevel = 2
 vim.g.netrwk_sort_oions = "1"
