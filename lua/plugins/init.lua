@@ -82,9 +82,11 @@ return {
   {"MunifTanjim/nui.nvim",},
 
 	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate"
-	},
+  "nvim-treesitter/nvim-treesitter",
+  config = function()
+    require("configs.treesitter")
+  end
+},
 
     {
     	'nvim-telescope/telescope.nvim',
