@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require 'configs.options'
 require 'configs.mappings'
 require('lazy').setup("plugins")
---require 'configs.treesitter'
+require 'configs.luasnip'
 require 'configs.oil'
 
 local ok, _ = pcall(vim.cmd, 'colorscheme catppuccin-mocha')

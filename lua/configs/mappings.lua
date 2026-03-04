@@ -1,5 +1,5 @@
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-vim.keymap.set('n', '<leader>g', ':Neogit<CR>', {})
+vim.keymap.set('n', '<leader><F6>', ':Neogit<CR>', {})
 vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', {})
 
 -- Telescope
