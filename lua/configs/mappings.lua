@@ -5,18 +5,30 @@ vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', {})
 -- Telescope
 vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', {})
 vim.keymap.set('n', '<leader>fg', ':Telescope live_grep <CR>', {})
-vim.keymap.set('n', '<leader>fb', ':Telescope buffers <CR>', {})
 vim.keymap.set('n', '<leader>fh', ':Telescope help_tags <CR>', {})
+--vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = 'Telescope: Buffers' })
+
+vim.keymap.set('n', '<leader>fb', function()
+    require('telescope.builtin').buffers({
+        attach_mappings = function(_, map)
+            local actions = require("telescope.actions")
+            map('n', '<C-f>d', actions.delete_buffer)
+            map('n', 'dd', actions.delete_buffer)
+            return true
+        end
+    })
+end, { desc = 'Telescope: Delete buffers' })
+
 
 -- Add current file to Harpoon list
-vim.keymap.set('n', '<leader>ha', function() 
-    require('harpoon'):list():add() 
+vim.keymap.set('n', '<leader>ha', function()
+    require('harpoon'):list():add()
 end, { desc = 'Harpoon: Add file' })
 
 -- Toggle the Harpoon UI menu
-vim.keymap.set('n', '<C-h>', function() 
+vim.keymap.set('n', '<C-h>', function()
     local harpoon = require('harpoon')
-    harpoon.ui:toggle_quick_menu(harpoon:list()) 
+    harpoon.ui:toggle_quick_menu(harpoon:list())
 end, { desc = 'Harpoon: Toggle menu' })
 
 -- Quick jump to files 1-4
