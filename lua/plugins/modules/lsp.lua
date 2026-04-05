@@ -17,7 +17,12 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "rust_analyzer", "clangd" },
+                ensure_installed = { "ts_ls", "lua_ls", "rust_analyzer", "clangd" },
+            })
+
+
+            vim.lsp.config("ts_ls", {
+                capabilities = capabilities,
             })
 
 
@@ -44,7 +49,8 @@ return {
                     "--query-driver=/usr/bin/c++,/usr/bin/g++,/usr/bin/clang++",
                 },
             })
-
+            
+            vim.lsp.enable("ts_ls")
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("rust_analyzer")
             vim.lsp.enable("clangd")

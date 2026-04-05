@@ -16,6 +16,7 @@ require 'configs.mappings'
 require('lazy').setup("plugins")
 require 'configs.luasnip'
 require 'configs.oil'
+require 'configs.cmp'
 
 local ok, _ = pcall(vim.cmd, 'colorscheme catppuccin-mocha')
 if not ok then
